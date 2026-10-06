@@ -214,6 +214,5 @@ This project was a hands-on introduction to SQL filtering and joins in a securit
 Filters narrow large datasets to exactly the records needed, and joins connect related data across tables. Together they make investigations faster and more accurate than searching raw logs.
 
 ## Connect
-
-- LinkedIn: [linkedin.com/in/karimsaminur123](https://linkedin.com/in/karimsaminur123)
+- LinkedIn: linkedin.com/in/saminur-karim-46bb65306
 - Medium: [medium.com/@karimsaminur123](https://medium.com/@karimsaminur123)
