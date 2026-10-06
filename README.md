@@ -36,7 +36,6 @@ WHERE login_time > '18:00' AND success = 0;
 - `WHERE login_time > '18:00'` isolates after-hours activity.
 - `AND success = 0` adds a second condition so only failed attempts are returned.
 
-![After-hours failed login attempts](images/01-after-hours-failed-logins.png)
 
 ---
 
@@ -54,7 +53,6 @@ WHERE login_date = '2022-05-09' OR login_date = '2022-05-08';
 - `OR` returns rows matching *either* date.
 - Results include both successful and failed attempts, giving full context around the event.
 
-![Login attempts on 2022-05-08 and 2022-05-09](images/02-login-attempts-specific-dates.png)
 
 ---
 
@@ -72,7 +70,6 @@ WHERE NOT country LIKE 'MEX%';
 - `LIKE 'MEX%'` matches any country value that *starts with* "MEX." The `%` wildcard accounts for different spellings, such as `MEX` or `Mexico`.
 - `NOT` negates the match, returning every country *except* Mexico.
 
-![Login attempts outside of Mexico](images/03-login-attempts-outside-mexico.png)
 
 ---
 
@@ -93,7 +90,6 @@ WHERE department = 'Marketing' AND office LIKE 'EAST%';
 - `AND` requires the second condition to also be true.
 - `office LIKE 'EAST%'` matches any office beginning with "EAST," regardless of room number.
 
-![Marketing employees in the East building](images/04-marketing-east-building.png)
 
 ---
 
@@ -110,7 +106,6 @@ WHERE department = 'Finance' OR department = 'Sales';
 **How it works:**
 - `OR` returns employees who match either department.
 
-![Employees in Finance or Sales](images/05-finance-or-sales.png)
 
 ---
 
@@ -127,7 +122,6 @@ WHERE NOT department = 'Information Technology';
 **How it works:**
 - `NOT` negates the condition, returning every department except Information Technology.
 
-![Employees not in IT](images/06-employees-not-in-it.png)
 
 ---
 
@@ -150,8 +144,6 @@ INNER JOIN employees ON machines.device_id = employees.device_id;
 - `ON machines.device_id = employees.device_id` defines the shared key.
 - The result is a combined table of each employee and their assigned machine.
 
-![INNER JOIN of machines and employees](images/07-inner-join-machines-employees.png)
-
 ---
 
 ### 8. Find every machine, including unassigned ones (LEFT JOIN)
@@ -168,7 +160,6 @@ LEFT JOIN employees ON machines.device_id = employees.device_id;
 - `LEFT JOIN` keeps **every row from the first table** (`machines`), even without a match.
 - Machines with no assigned user return `NULL` in the employee columns, which flags them as unassigned.
 
-![LEFT JOIN of machines and employees](images/08-left-join-machines-employees.png)
 
 ---
 
@@ -186,7 +177,6 @@ RIGHT JOIN employees ON machines.device_id = employees.device_id;
 - `RIGHT JOIN` keeps **every row from the second table** (`employees`), even without a match.
 - Employees with no device return `NULL` in the machine columns.
 
-![RIGHT JOIN of machines and employees](images/09-right-join-machines-employees.png)
 
 ---
 
@@ -204,7 +194,6 @@ INNER JOIN log_in_attempts ON employees.username = log_in_attempts.username;
 - `ON employees.username = log_in_attempts.username` links each login attempt to an employee.
 - The result shows each user's IP address, login time, and whether the attempt succeeded, which is the context needed to trace suspicious activity back to an account.
 
-![INNER JOIN of employees and log_in_attempts](images/10-inner-join-employees-logins.png)
 
 ---
 
